@@ -14,7 +14,8 @@ export class RestDataSource {
   	auth_token: string;
 
 	constructor(private http: HttpClient) {
-		this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`;
+		//this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`;
+		this.baseUrl = "/api/"
 	}
 
 	getProducts(): Observable<Product[]> {
@@ -28,8 +29,8 @@ export class RestDataSource {
 	authenticate(user: string, pass: string): Observable<boolean> {
 		return this.http.post<any>(this.baseUrl + "login", {name: user, password: pass})
 				.pipe(map(response => {
-				this.auth_token = response.success ? response.token : null;
-				return response.success;
+					this.auth_token = response.success ? response.token : null;
+					return response.success;
 				}));
 	}
 

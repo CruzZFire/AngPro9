@@ -1,4 +1,3 @@
-import { getLocaleExtraDayPeriods } from '@angular/common';
 import { Injectable } from "@angular/core";
 import { Observable } from 'rxjs';
 import { Order } from './order.model';
